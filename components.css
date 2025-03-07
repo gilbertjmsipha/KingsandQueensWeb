@@ -1,0 +1,141 @@
+/* Header Styles */
+header {
+    background-color: var(--charcoal);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: white;
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+    color: var(--gold);
+}
+
+.emergency-banner {
+    background-color: var(--gold);
+    padding: 0.8rem 0;
+    text-align: center;
+}
+
+.emergency-banner p {
+    margin: 0;
+    color: var(--charcoal);
+    font-weight: bold;
+}
+
+.emergency-banner a {
+    color: var(--charcoal);
+    text-decoration: underline;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--charcoal);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h3 {
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-column ul li a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0 0.5rem;
+    }
+}

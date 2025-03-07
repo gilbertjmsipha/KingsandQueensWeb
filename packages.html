@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Packages – Kings & Queens Funeral Services</title>
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        :root {
+            --gold: #c7ac70;
+            --charcoal: #393738;
+            --light-gold: #d9c498;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            height: 60vh;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(57, 55, 56, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .package-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-header {
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .premium-header {
+            background: linear-gradient(135deg, var(--gold), #8a7642);
+        }
+        
+        .standard-header {
+            background: linear-gradient(135deg, #5a7ca5, #3a5273);
+        }
+        
+        .basic-header {
+            background: linear-gradient(135deg, #6b8e7d, #4a6b5d);
+        }
+        
+        .package-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .package-content {
+            padding: 1.5rem;
+        }
+        
+        .package-feature {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .package-feature span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .price-tag {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.05);
+            margin: 1rem -1.5rem -1.5rem;
+        }
+        
+        .price-tag p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--charcoal);
+        }
+        
+        .price-tag .contact {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: var(--charcoal);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .comparison-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: bold;
+        }
+        
+        .additional-services {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .additional-services h3 {
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .why-choose {
+            margin-top: 3rem;
+        }
+        
+        .why-choose-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .why-choose-item span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-info span {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('/api/placeholder/1200/600');">
+        <div class="hero-content">
+            <h2>Funeral Packages</h2>
+            <p>Affordable & Dignified Funeral Plans for Every Family</p>
+            <a href="#packages" class="btn">View Packages</a>
+            <a href="#contact" class="btn" style="background-color: transparent; border: 2px solid white; color: white; margin-left: 10px;">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Funeral Packages</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                At Kings & Queens Funeral Services, we offer customized funeral packages to meet the needs of every family. Whether you seek a luxurious royal farewell or a simple, dignified service, we provide affordable and flexible plans tailored to your preferences.
+            </p>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.2rem; color: var(--charcoal);">
+                    <span style="color: var(--gold); font-size: 1.5rem;">📞</span> Need assistance choosing the right package? Call us: [Insert Contact]
+                </p>
+            </div>
+            
+            <!-- Premium Package -->
+            <div class="package-card" id="packages">
+                <div class="package-header premium-header">
+                    <h3><span style="font-size: 1.5rem;">💎</span> Premium Package – "The Royal Farewell"</h3>
+                    <p>A Luxurious and Fully Comprehensive Funeral Plan</p>
+                </div>
+                <div class="package-content">
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Hearse Service:</strong> Rolls-Royce, Mercedes-Benz, or Cadillac hearse.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Coffin/Casket:</strong> Premium handcrafted mahogany or metal casket.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Family Transport:</strong> Luxury minibus or limousine for mourners.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Burial & Cremation Services:</strong> Full arrangement of burial or cremation.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Body Preservation:</strong> Professional embalming and refrigeration.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Décor:</strong> Elegant floral arrangements & venue setup.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Professional Funeral Director:</strong> Full coordination of the service.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Tombstone:</strong> Custom marble or granite headstone.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Insurance:</strong> Up to $10,000 coverage for funeral costs.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Cross-Border Repatriation:</strong> Transport services to and from Zimbabwe & South Africa.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Memorial Services:</strong> Assistance in organizing post-funeral gatherings.</p>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <p><span style="font-size: 1.5rem;">💰</span> Price Range: $$$$</p>
+                        <p class="contact"><span style="color: var(--gold);">📞</span> Contact us for a custom quotation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Standard Package -->
+            <div class="package-card">
+                <div class="package-header standard-header">
+                    <h3><span style="font-size: 1.5rem;">✨</span> Standard Package – "Dignified Farewell"</h3>
+                    <p>A Well-Organized and Respectful Funeral Plan</p>
+                </div>
+                <div class="package-content">
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Hearse Service:</strong> Elegant Toyota Fortuner or Mercedes-Benz hearse.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Coffin/Casket:</strong> High-quality wood or metallic casket.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Family Transport:</strong> Minibus for mourners.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Burial & Cremation Services:</strong> Full arrangement of burial or cremation.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Body Preservation:</strong> Embalming and refrigeration services.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Décor:</strong> Floral arrangements and basic venue setup.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Director:</strong> Assistance with funeral coordination.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Tombstone:</strong> Standard granite tombstone.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Insurance:</strong> Up to $5,000 coverage for funeral costs.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Cross-Border Repatriation:</strong> Available at an extra cost.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>                        <p><strong>Memorial Services:</strong> Arranged upon request.</p>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <p><span style="font-size: 1.5rem;">💰</span> Price Range: $$$</p>
+                        <p class="contact"><span style="color: var(--gold);">📞</span> Contact us for more details.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Basic Package -->
+            <div class="package-card">
+                <div class="package-header basic-header">
+                    <h3><span style="font-size: 1.5rem;">🌿</span> Basic Package – "Simple & Respectful"</h3>
+                    <p>An Affordable Yet Dignified Funeral Service</p>
+                </div>
+                <div class="package-content">
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Hearse Service:</strong> Standard hearse (Toyota Quantum).</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Coffin/Casket:</strong> Standard polished wooden coffin.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Family Transport:</strong> Not included (available as an extra service).</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Burial & Cremation Services:</strong> Burial arrangements provided.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Body Preservation:</strong> Refrigeration only (embalming available at extra cost).</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Décor:</strong> Basic floral arrangement for the casket.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Director:</strong> Guidance with logistics & paperwork.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Tombstone:</strong> Not included (available at extra cost).</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Funeral Insurance:</strong> Up to $2,000 coverage for funeral costs.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p><strong>Cross-Border Repatriation:</strong> Available at extra cost.</p>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <p><span style="font-size: 1.5rem;">💰</span> Price Range: $$</p>
+                        <p class="contact"><span style="color: var(--gold);">📞</span> Contact us for a budget-friendly package.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="section-title" style="margin-top: 4rem;">
+                <h2>Compare Our Funeral Packages</h2>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Premium Package</th>
+                        <th>Standard Package</th>
+                        <th>Basic Package</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hearse Type</td>
+                        <td>Rolls-Royce / Mercedes / Cadillac</td>
+                        <td>Toyota Fortuner / Mercedes</td>
+                        <td>Toyota Quantum</td>
+                    </tr>
+                    <tr>
+                        <td>Coffin/Casket</td>
+                        <td>Luxury Mahogany/Metal</td>
+                        <td>High-Quality Wood/Metal</td>
+                        <td>Standard Wooden</td>
+                    </tr>
+                    <tr>
+                        <td>Family Transport</td>
+                        <td>Limousine / Luxury Minibus</td>
+                        <td>Standard Minibus</td>
+                        <td>Not Included</td>
+                    </tr>
+                    <tr>
+                        <td>Burial / Cremation</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Body Preservation</td>
+                        <td>Embalming & Refrigeration</td>
+                        <td>Embalming & Refrigeration</td>
+                        <td>Refrigeration Only</td>
+                    </tr>
+                    <tr>
+                        <td>Funeral Décor</td>
+                        <td>Premium Floral & Setup</td>
+                        <td>Standard Floral Setup</td>
+                        <td>Basic Floral</td>
+                    </tr>
+                    <tr>
+                        <td>Funeral Insurance</td>
+                        <td>Up to $10,000</td>
+                        <td>Up to $5,000</td>
+                        <td>Up to $2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Border Repatriation</td>
+                        <td>✅ Included</td>
+                        <td>Available at Extra Cost</td>
+                        <td>Available at Extra Cost</td>
+                    </tr>
+                    <tr>
+                        <td>Tombstone</td>
+                        <td>Custom Marble/Granite</td>
+                        <td>Standard Granite</td>
+                        <td>Not Included</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Additional Services -->
+            <div class="additional-services">
+                <h3>Additional Services (Available on Request)</h3>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p>Extra family & mourner transport.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p>Customized coffin & casket engraving.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p>Live video streaming for remote attendees.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p>Memorial services & unveiling ceremonies.</p>
+                    </div>
+                    <div class="package-feature">
+                        <span>✔️</span>
+                        <p>Catering services for post-funeral gatherings.</p>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <p style="font-size: 1.1rem;">
+                            <span style="color: var(--gold); font-size: 1.3rem;">💡</span> We can tailor packages to meet your unique needs!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us -->
+            <div class="why-choose">
+                <div class="section-title">
+                    <h2>Why Choose Kings & Queens Funeral Services?</h2>
+                </div>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="why-choose-item">
+                        <span>✔️</span>
+                        <p><strong>Affordable & Flexible Funeral Plans</strong> – Something for every budget.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <span>✔️</span>
+                        <p><strong>Compassionate & Professional Team</strong> – We guide you every step of the way.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <span>✔️</span>
+                        <p><strong>24/7 Emergency Assistance</strong> – Immediate response for funeral arrangements.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <span>✔️</span>
+                        <p><strong>Zimbabwe & South Africa Coverage</strong> – Cross-border services available.</p>
+                    </div>
+                    
+                    <div class="contact-info" id="contact">
+                        <p><span>📞</span> Contact Us Today: [Insert Phone Number]</p>
+                        <p><span>📍</span> Visit Us: [Insert Branch Locations]</p>
+                        <p><span>🌐</span> Website: www.kingsandqueensfunerals.co.za</p>
+                        <p><span>🕊️</span> Kings & Queens Funeral Services – Honoring Every Life with Dignity & Grace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta" style="background-color: var(--charcoal); color: white; text-align: center; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="color: var(--gold); margin-bottom: 1.5rem;">Need Assistance Choosing the Right Package?</h2>
+            <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Our compassionate team is available 24/7 to help you select the most suitable funeral package for your needs and budget. Contact us today for a personalized consultation.
+            </p>
+            <a href="#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <script src="js/loadComponents.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Package card hover effect
+            const packageCards = document.querySelectorAll('.package-card');
+            
+            packageCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // Sticky header effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (header && window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else if (header) {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

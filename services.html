@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services – Kings & Queens Funeral Services</title>
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        :root {
+            --gold: #c7ac70;
+            --charcoal: #393738;
+            --light-gold: #d9c498;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--charcoal);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            color: white;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.2rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .emergency-banner {
+            background-color: var(--gold);
+            padding: 0.8rem 0;
+            text-align: center;
+        }
+        
+        .emergency-banner p {
+            margin: 0;
+            color: var(--charcoal);
+            font-weight: bold;
+        }
+        
+        .emergency-banner a {
+            color: var(--charcoal);
+            text-decoration: underline;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .hero {
+            height: 60vh;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(57, 55, 56, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .service-box {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-box h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-box h3 span {
+            background-color: var(--gold);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        .service-feature {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-feature span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .service-contact {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-contact span {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-item h4 {
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .why-choose-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .why-choose-item span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-info span {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('/api/placeholder/1200/600');">
+        <div class="hero-content">
+            <h2>Our Services</h2>
+            <p>Comprehensive Funeral Solutions with Dignity & Compassion</p>
+            <a href="contactUs.html" class="btn">Contact Us</a>
+            <a href="services.html" class="btn" style="background-color: transparent; border: 2px solid white; color: white; margin-left: 10px;">View Services</a>
+        </div>
+    </section>
+            
+    <!-- Services Introduction -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Funeral Services</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                At Kings & Queens Funeral Services, we provide a full range of professional, dignified, and affordable funeral services to ensure your loved one receives a respectful farewell.
+            </p>
+            
+            <!-- Service 1 -->
+            <div class="service-box" id="services">
+                <h3><span>1</span> Funeral Planning & Arrangements</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Personalized funeral planning to honor your loved one's memory.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Assistance with burial and cremation arrangements.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Guidance on legal documentation and permits.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Coordination with churches, cemeteries, and venues.</p>
+                </div>
+                <div class="service-contact">
+                    <span>📞</span>
+                    <p>Need immediate assistance? Call us: [Insert Contact]</p>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-box">
+                <h3><span>2</span> Burial & Cremation Services</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Traditional Burial Services – Arranged with dignity and respect.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Cremation Services – Affordable, eco-friendly, and handled with care.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Grave Preparation & Maintenance – We prepare and maintain burial sites.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Tombstone Installation – Custom tombstone engraving and placement.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">💡</span>
+                    <p>We cater to different cultural and religious preferences.</p>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-box">
+                <h3><span>3</span> Coffins, Caskets & Urns</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Premium & Affordable Coffins – A wide selection for every budget.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Elegant Wooden & Metal Caskets – Handcrafted designs for a royal farewell.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Urns for Cremation Ashes – Beautifully designed urns for safekeeping.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">📍</span>
+                    <p>Visit our showroom to choose the perfect resting vessel.</p>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-box">
+                <h3><span>4</span> Funeral Transportation</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Hearse Services – Luxurious and dignified transportation.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Family & Mourners Transport – Minibuses and private vehicles available.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Cross-Border Repatriation – Transporting remains across Zimbabwe & South Africa.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">🚗</span>
+                    <p>We handle all logistics, ensuring a seamless process.</p>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-box">
+                <h3><span>5</span> Embalming & Body Preservation</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Professional Embalming – Preserving the body for viewings.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Refrigeration Services – Storage in our modern mortuary facilities.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Cosmetic & Dressing Services – Preparing the deceased for their final appearance.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">🕊️</span>
+                    <p>Handled with dignity and the utmost care.</p>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-box">
+                <h3><span>6</span> Floral Arrangements & Décor</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Custom Funeral Wreaths & Bouquets – Beautiful floral tributes.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Venue & Grave Decorations – Elegant setups for memorial services.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Candlelight & Thematic Arrangements – Personalized decor for the farewell.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">🌺</span>
+                    <p>We create meaningful tributes to honor your loved one.</p>
+                </div>
+            </div>
+            
+            <!-- Service 7 -->
+            <div class="service-box">
+                <h3><span>7</span> Funeral Insurance & Payment Plans</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Flexible Funeral Policies – Affordable coverage for individuals & families.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Pre-Paid Funeral Plans – Plan ahead & ease financial burdens.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Affordable Monthly Payments – No hidden costs, full transparency.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">💳</span>
+                    <p>Get a plan that ensures peace of mind for your family.</p>
+                </div>
+            </div>
+            
+            <!-- Service 8 -->
+            <div class="service-box">
+                <h3><span>8</span> Tombstones & Memorials</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Custom-Designed Tombstones – Marble, granite, and unique designs.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Engraving & Inscription Services – Personalized tributes for the departed.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Unveiling Ceremonies – We assist in organizing memorial events.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">🪦</span>
+                    <p>Celebrate a lasting legacy with a custom memorial.</p>
+                </div>
+            </div>
+            
+            <!-- Service 9 -->
+            <div class="service-box">
+                <h3><span>9</span> Community & Charity Support</h3>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Burial Assistance for Underprivileged Families.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Grief Counseling & Support Groups.</p>
+                </div>
+                <div class="service-feature">
+                    <span>✔️</span>
+                    <p>Partnerships with Local Churches & Organizations.</p>
+                </div>
+                <div class="service-contact" style="background-color: var(--gold); color: var(--charcoal);">
+                    <span style="color: var(--charcoal);">🙏</span>
+                    <p>Giving back to the community is part of our mission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <h4>Q: How do I arrange a funeral with Kings & Queens Funeral Services?</h4>
+                    <p>A: You can contact us 24/7 via phone or visit one of our branches. Our team will guide you through every step, from choosing a service package to arranging all logistics.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: What funeral plans do you offer?</h4>
+                    <p>A: We offer burial, cremation, and repatriation services, as well as prepaid funeral plans for individuals and families.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Can you assist with transportation across Zimbabwe and South Africa?</h4>
+                    <p>A: Yes, we provide local and cross-border funeral repatriation services.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: Do you offer affordable funeral options?</h4>
+                    <p>A: Yes, we have flexible payment plans and affordable service packages to suit every budget.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Q: How do I choose a coffin or casket?</h4>
+                    <p>A: We have a wide selection of coffins, caskets, and urns available at our showrooms. Our team will assist you in selecting the best option.</p>
+                </div>
+                
+                <div class="service-contact" style="max-width: 500px; margin: 2rem auto 0;">
+                    <span>📞</span>
+                    <p>Still have questions? Contact us today!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Families Say About Us</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Kings & Queens made a difficult time easier for us. Their professionalism and compassion were outstanding. Highly recommend!"
+                    </div>
+                    <div class="testimonial-author">- The Moyo Family, Bulawayo</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Exceptional service! They handled everything seamlessly, from paperwork to burial. Thank you for your kindness."
+                    </div>
+                    <div class="testimonial-author">- Sarah Dube</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The team at Kings & Queens went above and beyond. Their support meant everything to us. Forever grateful!"
+                    </div>
+                    <div class="testimonial-author">- Tinashe Ncube</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Kings & Queens</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="why-choose-item">
+                    <span>✔️</span>
+                    <p><strong>24/7 Emergency Assistance</strong> – We are here when you need us.</p>
+                </div>
+                
+                <div class="why-choose-item">
+                    <span>✔️</span>
+                    <p><strong>Affordable, Flexible Packages</strong> – Services tailored to every budget.</p>
+                </div>
+                
+                <div class="why-choose-item">
+                    <span>✔️</span>
+                    <p><strong>Experienced, Compassionate Staff</strong> – We guide you with care and professionalism.</p>
+                </div>
+                
+                <div class="why-choose-item">
+                    <span>✔️</span>
+                    <p><strong>Zimbabwe & South Africa Coverage</strong> – Cross-border and local services.</p>
+                </div>
+                
+                <div class="contact-info">
+                    <p><span>📞</span> Contact Us Today: [Insert Phone Number]</p>
+                    <p><span>📍</span> Visit Us: [Insert Branch Locations]</p>
+                    <p><span>🌐</span> Website: www.kingsandqueensfunerals.co.za</p>
+                    <p><span>🕊️</span> Kings & Queens Funeral Services – Honoring Every Life with Dignity & Grace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>We're Here When You Need Us</h2>
+            <p>Contact Kings and Queens Real Funeral Services for compassionate, professional support during your time of need. Our team is available 24/7 to assist you with funeral arrangements and answer any questions you may have.</p>
+            <a href="#" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <script src="js/loadComponents.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Service box hover effect
+            const serviceBoxes = document.querySelectorAll('.service-box');
+            
+            serviceBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    box.style.transform = 'translateY(-5px)';
+                    box.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                });
+                
+                box.addEventListener('mouseleave', () => {
+                    box.style.transform = 'translateY(0)';
+                    box.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // Sticky header effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources – Kings & Queens Funeral Services</title>
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        :root {
+            --gold: #c7ac70;
+            --charcoal: #393738;
+            --light-gold: #d9c498;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            height: 60vh;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(57, 55, 56, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .resource-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-header {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .resource-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-header h3 span {
+            margin-right: 10px;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .resource-link:hover {
+            background-color: var(--light-gold);
+        }
+        
+        .faq-section {
+            background-color: var(--light-gray);
+            padding: 3rem 0;
+            margin-bottom: 4rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .faq-question span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .faq-answer {
+            padding-left: 2rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .faq-answer span {
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .documents-section {
+            margin-bottom: 4rem;
+        }
+        
+        .document-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .document-item:hover {
+            background-color: #eaeaea;
+        }
+        
+        .document-item span {
+            color: var(--gold);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .document-content {
+            flex-grow: 1;
+        }
+        
+        .document-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+        
+        .document-link {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 0.5rem;
+        }
+        
+        .document-link:hover {
+            background-color: var(--light-gold);
+        }
+        
+        .video-section {
+            margin-bottom: 4rem;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .video-item {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            background-image: url('/api/placeholder/300/180');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .video-thumbnail::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(199, 172, 112, 0.8);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .video-content {
+            padding: 1.5rem;
+        }
+        
+        .video-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+        
+        .video-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .video-link:hover {
+            background-color: var(--light-gold);
+        }
+        
+        .external-links {
+            margin-bottom: 4rem;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .link-item:hover {
+            background-color: #eaeaea;
+        }
+        
+        .link-item span {
+            color: var(--gold);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .link-item a {
+            color: var(--charcoal);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .contact-section {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .contact-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-item span {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .resources-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('/api/placeholder/1200/600');">
+        <div class="hero-content">
+            <h2>Resources</h2>
+            <p>Guides, Articles & Support to Help You Plan with Ease</p>
+            <a href="#guides" class="btn">Funeral Planning Guides</a>
+            <a href="#faqs" class="btn" style="background-color: transparent; border: 2px solid white; color: white; margin-left: 10px;">FAQs</a>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Helpful Resources</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+                At Kings & Queens Funeral Services, we understand that losing a loved one is overwhelming. Our Resources Page provides helpful information, from funeral planning guides to legal documents and FAQs, ensuring that you have all the knowledge and support needed during this difficult time.
+            </p>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-size: 1.2rem; color: var(--charcoal);">
+                    <span style="color: var(--gold); font-size: 1.5rem;">📞</span> Need immediate assistance? Call our 24/7 helpline: [Insert Contact]
+                </p>
+            </div>
+            
+            <!-- Funeral Planning Guides -->
+            <div class="section-title" id="guides">
+                <h2>Funeral Planning Guides</h2>
+            </div>
+            
+            <div class="resources-grid">
+                <!-- Guide 1 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><span>✔️</span> How to Plan a Funeral in Zimbabwe & South Africa</h3>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-description">
+                            <p>Step-by-step guide on organizing a funeral, including legal requirements, costs, and documentation needed.</p>
+                        </div>
+                        <a href="#" class="resource-link"><span style="margin-right: 5px;">📥</span> Download Guide</a>
+                    </div>
+                </div>
+                
+                <!-- Guide 2 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><span>✔️</span> Understanding Funeral Insurance & Benefits</h3>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-description">
+                            <p>Everything you need to know about funeral insurance, coverage options, and claims processing.</p>
+                        </div>
+                        <a href="#" class="resource-link"><span style="margin-right: 5px;">📥</span> Download Guide</a>
+                    </div>
+                </div>
+                
+                <!-- Guide 3 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><span>✔️</span> Burial vs. Cremation: Which is Right for You?
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-description">
+                            <p>Pros and cons of burial vs. cremation to help families make informed decisions.</p>
+                        </div>
+                        <a href="#" class="resource-link"><span style="margin-right: 5px;">📥</span> Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Guide 4 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><span>✔️</span> Repatriation Guide: Transporting Loved Ones Across Borders</h3>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-description">
+                            <p>Essential information on repatriation services, costs, and legal requirements.</p>
+                        </div>
+                        <a href="#" class="resource-link"><span style="margin-right: 5px;">📥</span> Download Guide</a>
+                    </div>
+                </div>
+                
+                <!-- Guide 5 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><span>✔️</span> Funeral Etiquette: What to Say & Do at a Funeral</h3>
+                    </div>
+                    <div class="resource-content">
+                        <div class="resource-description">
+                            <p>A helpful guide on proper etiquette when attending or organizing a funeral.</p>
+                        </div>
+                        <a href="#" class="resource-link"><span style="margin-right: 5px;">📥</span> Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQs Section -->
+            <div class="faq-section" id="faqs">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Frequently Asked Questions (FAQs)</h2>
+                    </div>
+                    
+                    <div class="faq-container">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>❓</span>
+                                <p>What documents do I need to arrange a funeral?</p>
+                            </div>
+                            <div class="faq-answer">
+                                <span>📌</span>
+                                <p>You will need:<br>
+                                • Death certificate<br>
+                                • National ID of the deceased<br>
+                                • Burial order (for Zimbabwe)<br>
+                                • Import/export permit (for repatriation)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>❓</span>
+                                <p>How long does it take to process funeral arrangements?</p>
+                            </div>
+                            <div class="faq-answer">
+                                <span>📌</span>
+                                <p>Depending on the services chosen, it can take 24 hours to a few days. We offer same-day services for urgent cases.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>❓</span>
+                                <p>Does Kings & Queens offer payment plans?</p>
+                            </div>
+                            <div class="faq-answer">
+                                <span>📌</span>
+                                <p>Yes, we offer flexible funeral insurance and installment plans to ensure affordability.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>❓</span>
+                                <p>Can I pre-plan my own funeral?</p>
+                            </div>
+                            <div class="faq-answer">
+                                <span>📌</span>
+                                <p>Yes! Pre-planning allows you to arrange everything in advance and relieve your family of financial stress.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 5 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>❓</span>
+                                <p>How does repatriation work?</p>
+                            </div>
+                            <div class="faq-answer">
+                                <span>📌</span>
+                                <p>We handle all paperwork, preservation, and transportation to return your loved one home with dignity.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <p>📍 Still have questions? <a href="#contact" style="color: var(--charcoal); font-weight: bold;">Contact us</a> for more information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Downloadable Forms & Documents -->
+            <div class="documents-section">
+                <div class="section-title">
+                    <h2>Downloadable Forms & Documents</h2>
+                </div>
+                
+                <div class="document-item">
+                    <span>📌</span>
+                    <div class="document-content">
+                        <h4>Funeral Arrangement Checklist</h4>
+                        <p>A step-by-step checklist for planning a funeral.</p>
+                        <a href="#" class="document-link">Download</a>
+                    </div>
+                </div>
+                
+                <div class="document-item">
+                    <span>📌</span>
+                    <div class="document-content">
+                        <h4>Death Registration Form (Zimbabwe)</h4>
+                        <p>Official document for registering a death.</p>
+                        <a href="#" class="document-link">Download</a>
+                    </div>
+                </div>
+                
+                <div class="document-item">
+                    <span>📌</span>
+                    <div class="document-content">
+                        <h4>Repatriation Request Form</h4>
+                        <p>Required for transporting remains across borders.</p>
+                        <a href="#" class="document-link">Download</a>
+                    </div>
+                </div>
+                
+                <div class="document-item">
+                    <span>📌</span>
+                    <div class="document-content">
+                        <h4>Pre-Planning Contract</h4>
+                        <p>Secure your funeral plan in advance.</p>
+                        <a href="#" class="document-link">Download</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Resources -->
+            <div class="video-section">
+                <div class="section-title">
+                    <h2>Video Resources</h2>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-thumbnail"></div>
+                        <div class="video-content">
+                            <h4>How to Choose the Right Funeral Plan</h4>
+                            <a href="#" class="video-link">Watch Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-thumbnail"></div>
+                        <div class="video-content">
+                            <h4>Understanding Burial vs. Cremation</h4>
+                            <a href="#" class="video-link">Watch Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-thumbnail"></div>
+                        <div class="video-content">
+                            <h4>Kings & Queens Facility Tour</h4>
+                            <a href="#" class="video-link">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- External Links -->
+            <div class="external-links">
+                <div class="section-title">
+                    <h2>Helpful External Links</h2>
+                </div>
+                
+                <div class="link-item">
+                    <span>🌍</span>
+                    <a href="#" target="_blank">Registrar General's Office – Death Certificates (Zimbabwe)</a>
+                </div>
+                
+                <div class="link-item">
+                    <span>🌍</span>
+                    <a href="#" target="_blank">South Africa Home Affairs – Repatriation Rules</a>
+                </div>
+                
+                <div class="link-item">
+                    <span>🌍</span>
+                    <a href="#" target="_blank">Zimbabwe Funeral Services Association (ZFSA)</a>
+                </div>
+            </div>
+            
+            <!-- Contact Section -->
+            <div class="contact-section" id="contact">
+                <h3>Need Personalized Assistance?</h3>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <p>Call Us</p>
+                        <p>[Insert Contact]</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <p>Email</p>
+                        <p>[Insert Email]</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <p>Visit Us</p>
+                        <a href="locations.html" style="color: white; text-decoration: underline;">Find a Branch Near You</a>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem;">
+                    <span style="color: var(--gold);">🕊️</span> Kings & Queens Funeral Services – Your Guide Through Life's Toughest Moments
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta" style="background-color: var(--charcoal); color: white; text-align: center; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="color: var(--gold); margin-bottom: 1.5rem;">Need Immediate Assistance?</h2>
+            <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Our compassionate team is available 24/7 to help you with funeral arrangements, answer questions, or provide guidance during this difficult time.
+            </p>
+            <a href="#contact" class="btn">Contact Us Now</a>
+        </div>
+    </section>
+
+    <script src="js/loadComponents.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Resource card hover effect
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            resourceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // FAQ interaction
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isVisible = answer.style.maxHeight;
+                    
+                    if (!isVisible) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        question.style.color = 'var(--gold)';
+                    } else {
+                        answer.style.maxHeight = null;
+                        question.style.color = 'var(--charcoal)';
+                    }
+                });
+            });
+            
+            // Sticky header effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (header && window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else if (header) {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

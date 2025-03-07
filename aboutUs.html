@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kings & Queens Funeral Services</title>
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        :root {
+            --gold: #c7ac70;
+            --charcoal: #393738;
+            --light-gold: #d9c498;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--charcoal);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            background-color: var(--light-gray);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            color: var(--charcoal);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h2 {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            color: var(--charcoal);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .values-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .values-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .values-list li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+        }
+
+        .services-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .services-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .services-list li::before {
+            content: '🔹';
+            position: absolute;
+            left: 0;
+        }
+
+        .locations-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .locations-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .locations-list li::before {
+            content: '📍';
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        /* Update footer styles to match index page */
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+ 
+    <main class="container">
+        <section class="introduction">
+            <h2 class="section-title">Who We Are</h2>
+            <p>Welcome to KQ Website. We are dedicated to providing exceptional services and solutions to our clients.</p>
+            <p>At Kings & Queens Funeral Services, we understand that saying goodbye to a loved one is one of life's most difficult moments. That's why we are dedicated to providing compassionate, professional, and dignified funeral services that celebrate life and honor traditions. With a strong presence in Zimbabwe and South Africa, we have built a reputation for excellence, ensuring every farewell is conducted with grace, respect, and care.</p>
+        </section>
+
+        <section class="journey">
+            <h2 class="section-title">Our Journey: A Legacy of Excellence</h2>
+            <p>Founded in 2004 in South Africa and later expanding to Zimbabwe in 2010, Kings & Queens Funeral Services was established with a vision to redefine the funeral industry. Over the years, we have become a trusted name in funeral care, offering comprehensive funeral services tailored to the cultural and religious needs of our diverse clientele.</p>
+        </section>
+
+        <section class="mission">
+            <h2 class="section-title">Our Mission</h2>
+            <p>To provide exceptional and dignified funeral services that bring comfort and support to families during their time of need. We are committed to exceeding expectations through compassion, professionalism, and unwavering dedication to quality service.</p>
+        </section>
+
+        <section class="values">
+            <h2 class="section-title">Our Core Values</h2>
+            <ul class="values-list">
+                <li>Compassion & Respect – We serve with empathy, ensuring every family feels supported and valued.</li>
+                <li>Dignity & Honor – Every farewell is conducted with the utmost respect for the deceased and their loved ones.</li>
+                <li>Integrity & Trust – Transparency and honesty guide our every interaction.</li>
+                <li>Cultural & Religious Sensitivity – We honor all traditions, faiths, and customs.</li>
+                <li>Excellence & Innovation – We continuously improve our services to provide the best possible experience.</li>
+            </ul>
+        </section>
+
+        <section class="services">
+            <h2 class="section-title">What We Offer</h2>
+            <p>At Kings & Queens, we provide a full spectrum of funeral services, ensuring every aspect of the farewell is handled with precision and care.</p>
+            <ul class="services-list">
+                <li>Burial & Cremation Services – Traditional and customized farewell options.</li>
+                <li>Coffins & Caskets – A wide range of premium and affordable selections.</li>
+                <li>Hearse & Transport Services – Dignified transport for the deceased.</li>
+                <li>Grave Preparation & Equipment – Including tents, chairs, and decorations.</li>
+                <li>Funeral Planning & Documentation – Stress-free arrangements for families.</li>
+                <li>Embalming & Body Preservation – Ensuring the dignified presentation of loved ones.</li>
+                <li>Floral Arrangements & Wreaths – Elegant tributes for the ceremony.</li>
+            </ul>
+        </section>
+
+        <section class="locations">
+            <h2 class="section-title">Our Presence: Serving with Pride</h2>
+            <p>We are proud to serve families across Zimbabwe and South Africa, with branches in key cities such as:</p>
+            <ul class="locations-list">
+                <li>Bulawayo – Kelvin North & City Center</li>
+                <li>Harare – City Center</li>
+                <li>Plumtree – Industrial Site</li>
+                <li>Johannesburg – Doornfontein, Randburg, Cosmocity</li>
+                <li>Pretoria & Polokwane – South Africa</li>
+            </ul>
+        </section>
+
+        <section class="community">
+            <h2 class="section-title">Giving Back to the Community</h2>
+            <p>At Kings & Queens, we believe in serving beyond funerals. We actively support local communities through charitable initiatives, such as providing burial assistance for underprivileged families and supporting bereaved communities in times of crisis.</p>
+        </section>
+
+        <section class="contact">
+            <h2 class="section-title">Let Us Honor Your Loved Ones</h2>
+            <p>Saying goodbye is never easy, but at Kings & Queens Funeral Services, we ensure that every farewell is filled with love, dignity, and lasting memories. Whether you need immediate assistance or wish to pre-plan a funeral, our compassionate team is here to guide you every step of the way.</p>
+            <div class="contact-info">
+                <p>📞 Call Us Today: [Insert Contact Number]</p>
+                <p>📍 Visit Us: [Insert Branch Locations]</p>
+                <p>🌐 Website: www.kingsandqueensfunerals.co.za</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add the JavaScript for consistent behavior -->
+    <script src="js/loadComponents.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sticky header effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
